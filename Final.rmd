@@ -89,7 +89,14 @@ From our chisq test we receive a p-value of 1.098e^-13 and on our fisher exact t
 
 ## Females
 
+$H_0$; There is no effectiveness in the new Covid921 vaccine and the placebo vaccine when dealing with females
 
+$H_0$; There is effectiveness in the new Covid921 vaccine and the placebo vaccine when dealing with females
+
+```{r}
+library(dplyr)
+female = filter(FinalData,FinalData$sex=='F')
+```
 
 
 
