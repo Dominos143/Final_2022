@@ -160,6 +160,56 @@ library(dplyr)
 lgbtq = filter(FinalData,FinalData$LGBTQ=='gay')
 ```
 
+# Methods
+
+Since we are comparing LGBTQ members to treatment, which is categorical~categorical, so we in turn will be using the Cat~Cat helper file
+
+# Results
+
+<!-- Split into Descriptive results and Inferential results. !--> 
+
+## Descrpitive Results
+
+<!-- Split into Graphical results and Numerical Results. !-->
+
+### Graphical Descriptive Results
+
+```{r}
+barchartGC(~infected + treatment ,data=lgbtq)
+barchartGC(~infected + treatment ,data=lgbtq, type="percent")
+```
+
+We can see that through the graph that those who got the vaccine saw more infections than those who got placebo.
+
+### Numerical Descriptive Results
+
+```{r}
+table3 <- xtabs( ~infected + treatment, data=lgbtq)
+rowPerc(table3)
+colPerc(table3)
+```
+
+We see that a much higher percent, of about 5 times higher infection rate than the individuals who had received a pleacbo.
+
+## Inferential Results
+
+```{r}
+chisq.test(table3)
+chisqtestGC(table3)
+```
+
+We receive a p-value of 6.668e^-08 which is less than 0.05 meaning we reject the null hypothesis
+
+```{r}
+lgbtq$infected = factor(lgbtq$infected,c("OK","covid19"))
+fisher.test(lgbtq$treatment,lgbtq$infected)
+```
+
+We receive a p-value of 1.029e^-08, and 5.5 odds ratio. Which means you are 5.5 times more likely to get infected with the vaccine.
+
+# Discussion and Conclusion  
+
+Due to the low p-values of 6.668e^-08 and 1.029e^-08, we reject the null hypothesis and say there is effectiveness in the vaccine, although more people were infected with the vaccine, it seems there is still effectiveness in the vaccine with our data.
 
 
 
