@@ -98,7 +98,57 @@ library(dplyr)
 female = filter(FinalData,FinalData$sex=='F')
 ```
 
+# Methods
 
+Since we are comparing sex (female) to treatment, which is categorical~categorical, so we in turn will be using the Cat~Cat helper file
+
+# Results
+
+<!-- Split into Descriptive results and Inferential results. !--> 
+
+## Descrpitive Results
+
+<!-- Split into Graphical results and Numerical Results. !-->
+
+### Graphical Descriptive Results
+
+```{r}
+barchartGC(~infected + treatment ,data=female)
+barchartGC(~infected + treatment ,data=female, type="percent")
+```
+
+The graph shows that females who took the vaccine had a lower infection rate than those who had taken a placebo.
+
+### Numerical Descriptive Results
+
+
+```{r}
+table2 <- xtabs( ~infected + treatment, data=female)
+rowPerc(table2)
+colPerc(table2)
+```
+
+We can see from the data given that there is a difference of 20 among females who had taken the vaccine and those who had received a placebo.
+
+## Inferential Results
+
+```{r}
+chisq.test(table2)
+chisqtestGC(table2)
+```
+
+With the chisq test we receive a p-value of 0.0002732, which is lower than 0.05, therefore we reject the null hypothesis of there being no effectiveness in females.
+
+```{r}
+female$infected = factor(female$infected,c("OK","covid19"))
+fisher.test(female$treatment,female$infected)
+```
+
+With the fisher exact test we receive a p-value of 0.0002162, and we also receive 2 : 3 odds, in favor of the vaccine. Our odds are .66 as likly to get infected with the vaccine.
+
+# Discussion and Conclusion 
+
+Through our data with females, we received a p-value's of 0.0002732 and 0.0002162 through our chisq and fisher exact tests. We also received 2 : 3 odds in favor of the vaccine effectiveness in females. Therefore we can conclude that the vaccine is effective in females.
 
 ## LGBTQ
 
