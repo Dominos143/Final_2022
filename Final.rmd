@@ -26,15 +26,36 @@ A new  preventative vaccine (covid921) is under test in clinical trials. Given t
 
 ## Males
 
+$H_0$; There is no effectiveness in the new Covid921 vaccine and the placebo vaccine when dealing with males
+
+$H_A$; There is effectiveness in the new Covid921 vaccine and the placebo vaccine when dealing with males
+
+```{r}
+library(dplyr)
+male = filter(FinalData,FinalData$sex=='M')
+```
+
+
 
 ## Females
+
+
+
 
 
 ## LGBTQ
 
 
 
+
+
 ## Druggies
 
 
+
+
+
 # Overall Results and Conclusions
+
+
+
