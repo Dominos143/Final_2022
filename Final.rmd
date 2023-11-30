@@ -215,6 +215,15 @@ Due to the low p-values of 6.668e^-08 and 1.029e^-08, we reject the null hypothe
 
 
 ## Druggies
+$H_0$; There is no effectiveness in the new Covid921 vaccine and the placebo vaccine when dealing with "druggies"
+
+$H_0$; There is effectiveness in the new Covid921 vaccine and the placebo vaccine when dealing with "druggies"
+
+```{r}
+library(dplyr)
+druggies = filter(FinalData,FinalData$DrugUser=='yes')
+```
+
 
 
 
