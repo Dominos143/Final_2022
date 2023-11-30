@@ -225,8 +225,58 @@ druggies = filter(FinalData,FinalData$DrugUser=='yes')
 ```
 
 
+# Methods
+
+Since we are comparing "druggies" to treatment, which is categorical~categorical, so we in turn will be using the Cat~Cat helper file
+
+# Results
+
+<!-- Split into Descriptive results and Inferential results. !--> 
+    
+    ## Descrpitive Results
+    
+    <!-- Split into Graphical results and Numerical Results. !-->
+    
+    ### Graphical Descriptive Results
+    
+    ```{r}
+barchartGC(~infected + treatment ,data=druggies)
+barchartGC(~infected + treatment ,data=druggies, type="percent")
+```
+
+The graph shows us that there is a higher infection rate with those who had received the vaccine.
+
+### Numerical Descriptive Results
 
 
+```{r}
+table4 <- xtabs( ~infected + treatment, data=druggies)
+rowPerc(table4)
+colPerc(table4)
+```
+
+We can see that it is about 8 times higher infection rate for those who had gotten the vaccine as opposed to those who had received the placebo.
+
+## Inferential Results
+
+```{r}
+chisq.test(table4)
+chisqtestGC(table4)
+```
+
+From our chisq test, we receive a p-value of 2.842e^-09 which means we reject the null hypothesis.
+
+```{r}
+druggies$infected = factor(druggies$infected,c("OK","covid19"))
+fisher.test(druggies$treatment,druggies$infected)
+```
+
+With the our new fisher exact test, we receive a p-value of 2.32e^-10, and odds ration of 7.9, which is essentially 8 times more likely to get infected with the vaccine.
+
+# Discussion and Conclusion  
+
+With our p-values being as low as they are, 2.842e^-09 and 2.32e^-10, based off of our chisq and fisher exact tests, it forces us to
+reject the null hypothesis of there being no effectiveness in the vaccine, although it has higher odds of infection.
 
 
 # Overall Results and Conclusions
