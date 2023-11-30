@@ -280,6 +280,6 @@ reject the null hypothesis of there being no effectiveness in the vaccine, altho
 
 
 # Overall Results and Conclusions
-
+With the data from males, their p-values of  1.098e^-13 and on our fisher exact test we receive a p-value of 4.631e^-14, allowing for it to be reasonable for males to take the vaccine as it is proven to be effective. For females, we receive p-value's of 0.0002732 and 0.0002162 through our chisq and fisher exact tests, it would also be reasonable for them to get the vaccine. Now with LGBTQ members, we ran into some interesting data, we found those who had gotten the vaccine had higher odds of getting infected by covid, however, with our p-values being so small, 6.668e^-08 and 1.029e^-08, thanks to our chisq and fisher exact test. It also is about 5 times more likely to get covid, although the data suggests that there is effectiveness since the p-values are lower than 0.05, we reject the hypothesis that it has no effectiveness. For druggies, we see similar, we have a higher infection rate,7.9 times, with the vaccine than those who receive a placebo. Our p-values for those individuals are 2.842e^-09 and 2.32e^-10 thanks to our chisq and fisher exact tests. Overall, with how every p-value we receive is significantly lower than 0.05, we reject the null hypothesis that there is no effectiveness of the new Covid921 vaccine. With all of the data, it should be recommended that everyone in every subgroup take the new preventative Covid921 due to every p-value being less than 0.05, proving that there is effectiveness with the new vaccine.
 
 
